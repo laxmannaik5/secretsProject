@@ -104,7 +104,7 @@ app.get("/register", function(req, res){
 });
 
 app.get("/secrets", function(req, res){
-  if (req.isAuthenticated){
+
     User.find({"secret": {$ne: null}}, function(err, foundUsers){
       if (err){
         console.log(err);
@@ -114,9 +114,7 @@ app.get("/secrets", function(req, res){
         }
       }
     });
-  }else {
-    res.redirect("/login");
-  }
+  
 
 });
 
